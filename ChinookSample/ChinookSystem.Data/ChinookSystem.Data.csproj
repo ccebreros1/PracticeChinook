@@ -46,7 +46,7 @@
     <Compile Include="Entities\Track.cs" />
     <Compile Include="Entities\Album.cs" />
     <Compile Include="Entities\Artist.cs" />
-    <Compile Include="POCOs\ArtistAlbum.cs" />
+    <Compile Include="POCOs\ArtistAlbums.cs" />
     <Compile Include="POCOs\MediaTypeTrackCount.cs" />
     <Compile Include="POCOs\AlbumTrackSummary.cs" />
     <Compile Include="POCOs\CustomerContact.cs" />
