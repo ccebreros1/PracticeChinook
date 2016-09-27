@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.Data.POCOs
 {
-    public class AlbumTracks
+    public class AlbumTrackSummary
     {
         public string Title { get; set; }
         public int TotalTracksforAlbum { get; set; }

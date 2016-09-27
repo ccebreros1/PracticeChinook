@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.Data.POCOs
 {
-    public class PopularMediaType
+    public class ArtistAlbum
     {
         public string Name { get; set; }
-        public int TrackCount { get; set; }
+        public string Title { get; set; }
     }
 }
