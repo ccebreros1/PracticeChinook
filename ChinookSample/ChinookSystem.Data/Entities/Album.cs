@@ -28,7 +28,7 @@ namespace ChinookSystem.Data.Entities
         //Properties should be listed in the same order as SQL table attributes for ease of maintainance 
         public int AlbumId { get; set; }
         public string Title { get; set; }
-        public int ArtistsId { get; set; }
+        public int ArtistId { get; set; }
         public int ReleaseYear { get; set; }
         public string ReleaseLabel { get; set; }
 
@@ -37,6 +37,6 @@ namespace ChinookSystem.Data.Entities
         //Properties that point to "children" use ICollection<T>
         //Properties that point to "parent" use ParentName as the Datatype
         public virtual ICollection<Track> Tracks { get; set; }
-        public virtual Artist Artists { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }

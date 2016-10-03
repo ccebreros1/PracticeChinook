@@ -40,7 +40,7 @@ namespace ChinookSystem.Data.Entities
         //These properties will be of type virtual
         //Properties that point to "children" use ICollection<T>
         //Properties that point to "parent" use ParentName as the Datatype
-        public virtual Album Albums { get; set; }
-        public virtual MediaType MediaTypes { get; set; }
+        public virtual Album Album { get; set; }
+        public virtual MediaType MediaType { get; set; }
     }
 }

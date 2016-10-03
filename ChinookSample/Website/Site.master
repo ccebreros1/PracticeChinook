@@ -78,7 +78,7 @@
 
                             <asp:MenuItem Text="DDLPages" Value="Menu">
                                 <asp:MenuItem Text="FirstSample" NavigateUrl="~/Queries/FirstSample.aspx"/>
-                                <asp:MenuItem Text="Page2" NavigateUrl="~/Queries/FirstSample.aspx"/>
+                                <asp:MenuItem Text="RepresentativeCustomers" NavigateUrl="~/Queries/RepresentativeCustomers.aspx"/>
                             </asp:MenuItem>
                             <asp:MenuItem Text="About" NavigateUrl="~/About"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact"></asp:MenuItem>
