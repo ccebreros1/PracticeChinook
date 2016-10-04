@@ -36,7 +36,7 @@ namespace ChinookSystem.BLL
         //this will use Linq to Entity access.
         //POCO classes will be used to define the data
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<ArtistAlbums> ArtistAlbums_Get()
+        public List<ArtistAlbums> ArtistAlbums_Get(int year)
         {
             //Setup transaction area
             using (var context = new ChinookContext()) //Goes to the appropiate context class
@@ -46,7 +46,7 @@ namespace ChinookSystem.BLL
                 //You may also need to change your navigation referencing use in Linqpad
                 //to the navigation properties you stated in the Entity class definitions
                 var results = from x in context.Albums
-                              where x.ReleaseYear == 2008
+                              where x.ReleaseYear == year
                               orderby x.Artist.Name, x.Title
                               select new ArtistAlbums
                               {
