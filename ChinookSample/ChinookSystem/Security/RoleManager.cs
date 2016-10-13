@@ -13,10 +13,11 @@ using Microsoft.AspNet.Identity.EntityFramework; //IdentityRole and RoleStore
 
 namespace ChinookSystem.Security
 {
-    public class RoleManager:RoleManager<IdentityRole>
+    public class RoleManager : RoleManager<IdentityRole>
     {
         public RoleManager() : base(new RoleStore<IdentityRole>(new ApplicationDbContext()))
         {
+          
         }
     }
 }
