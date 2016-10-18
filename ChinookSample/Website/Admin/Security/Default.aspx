@@ -23,7 +23,46 @@
                 <%--eop--%>
                 <!--Roles tab-->
                 <div class="tab-pane fade" id="roles">
-                    <h2>Roles</h2>
+                    <asp:ListView ID="RoleListView" runat="server" 
+                        DataSourceID="RoleListODS" 
+                        ItemType="RoleProfile"
+                        InsertItemPosition="LastItem">
+
+                        <EmptyDataTemplate>
+                            <span>No security roles have been set up</span>
+                        </EmptyDataTemplate>
+                        <LayoutTemplate>
+                            <div class="col-sm-3 h4">Action</div>
+                            <div class="col-sm-3 h4">Role Name</div>
+                            <div class="col-sm-6 h4">Users</div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="col-sm-3">
+                                <asp:LinkButton ID="RemoveRole" runat="server">Remove</asp:LinkButton>
+                            </div> 
+                            <div class="col-sm-3">
+                                <%# Item.RoleName %>
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:Repeater ID="RoleUsers" runat="server" DataSource=" <%# Item.UserNames %>">
+                                    <ItemTemplate>
+                                        <%# Item %>
+                                    </ItemTemplate>
+                                    <SeparatorTemplate>, </SeparatorTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </ItemTemplate>
+                        <InsertItemTemplate>
+                            <div class="col-sm-3">
+                                <asp:LinkButton ID="InsertRole" runat="server">Insert</asp:LinkButton>&nbsp; &nbsp;
+                                <asp:LinkButton ID="Cancel" runat="server">Insert</asp:LinkButton>
+                            </div> 
+                            <div class="col-sm-3">
+                                <asp:TextBox ID="NewRoleName" runat="server" Text='<%# BindItem.RoleName %>' placeholder="Role Name"></asp:TextBox>
+                            </div>
+                        </InsertItemTemplate>
+
+                    </asp:ListView>
                 </div>
                 <%--eop--%>
                 <!--Unregistered tab-->
