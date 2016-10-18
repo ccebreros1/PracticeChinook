@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Admin_Security_Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="row jumbotron">
         <h2>User and Role Administration</h2>
     </div>
@@ -19,17 +19,20 @@
                 <!--User tab-->
                 <div class="tab-pane fade in active" id="users">
                     <h2>User</h2>
-                </div><%--eop--%>
+                </div>
+                <%--eop--%>
                 <!--Roles tab-->
                 <div class="tab-pane fade" id="roles">
                     <h2>Roles</h2>
-                </div><%--eop--%>
+                </div>
+                <%--eop--%>
                 <!--Unregistered tab-->
                 <div class="tab-pane fade" id="unregistered">
                     <h2>Unregistered</h2>
-                </div><%--eop--%>
+                </div>
+                <%--eop--%>
             </div>
-        </div>    
+        </div>
     </div>
 </asp:Content>
 
