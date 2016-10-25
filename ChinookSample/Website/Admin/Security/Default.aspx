@@ -19,6 +19,7 @@
                 <!--User tab-->
                 <div class="tab-pane fade in active" id="users">
                     <h2>User</h2>
+
                 </div>
                 <%--eop--%>
                 <!--Roles tab-->
@@ -84,6 +85,41 @@
                 <!--Unregistered tab-->
                 <div class="tab-pane fade" id="unregistered">
                     <h2>Unregistered</h2>
+                     <asp:GridView ID="UnregisteredUsersGridView" runat="server" 
+                        AutoGenerateColumns="False" 
+                        DataSourceID="UnregisteredUsersODS"
+                         DataKeyNames="Id"
+                         ItemType="ChinookSystem.Security.UnregisteredUserProfile" OnSelectedIndexChanging="UnregisteredUsersGridView_SelectedIndexChanging">
+                        <Columns>
+                            <asp:CommandField SelectText="Register" ShowSelectButton="True"></asp:CommandField>
+                            <asp:BoundField DataField="UserType" HeaderText="UserType" SortExpression="UserType"></asp:BoundField>
+                            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName"></asp:BoundField>
+                            <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname"></asp:BoundField>
+                            <asp:TemplateField HeaderText="AssignedUserName" SortExpression="AssignedUserName">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Text='<%# Bind("AssignedUserName") %>' 
+                                        ID="AssignedUserName"></asp:TextBox>
+                                </ItemTemplate>
+                               
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="AssignedEmail" SortExpression="AssignedEmail">
+                                <ItemTemplate>
+                                    <asp:TextBox runat="server" Text='<%# Bind("AssignedEmail") %>' 
+                                        ID="AssignedEmail"></asp:TextBox>
+                                </ItemTemplate>
+                               
+                            </asp:TemplateField>
+
+                        </Columns>
+                         <EmptyDataTemplate>
+                             <span>No Unregistered users available at this time</span>
+                         </EmptyDataTemplate>
+                    </asp:GridView>
+                    <asp:ObjectDataSource ID="UnregisteredUsersODS" runat="server" 
+                        OldValuesParameterFormatString="original_{0}" 
+                        SelectMethod="ListAllUnRegisteredUsers" 
+                        TypeName="ChinookSystem.Security.UserManager">
+                    </asp:ObjectDataSource>
                 </div>
                 <%--eop--%>
         </div>
