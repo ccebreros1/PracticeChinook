@@ -9,14 +9,14 @@ namespace ChinookSystem.Security
  
     public class UserProfile
     {
-        public int UserId { get; set; } //AspNetUser
+        public string UserId { get; set; } //AspNetUser
         public string UserName { get; set; } //AspNetUser
         public int? EmployeeId { get; set; } //AspNetUser
         public int? CustomerId { get; set; } //AspNetUser
         public string FirstName { get; set; } //Customer Table
         public string LastName { get; set; } //Customer Table
         public string Email { get; set; } //AspNetUser
-        public string EmailConfirm { get; set; } //AspNetUser
+        public bool EmailConfirmed { get; set; } //AspNetUser
         public IEnumerable<string> RoleMemberships { get; set; }
 
     }
