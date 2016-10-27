@@ -73,7 +73,7 @@ namespace ChinookSystem.Security
                                             where registeredEmployees.Any(eid => emp.EmployeeId == eid)
                                             select new UnregisteredUserProfile
                                             {
-                                                UserId = emp.EmployeeId,
+                                                CustomerEmployeeId = emp.EmployeeId,
                                                 FirstName = emp.FirstName,
                                                 LastName = emp.LastName,
                                                 UserType = UnregisteredUserType.Employee
@@ -88,7 +88,7 @@ namespace ChinookSystem.Security
                                             where registeredCustomers.Any(cid => costumer.CustomerId == cid)
                                             select new UnregisteredUserProfile
                                             {
-                                                UserId = costumer.CustomerId,
+                                                CustomerEmployeeId = costumer.CustomerId,
                                                 FirstName = costumer.FirstName,
                                                 LastName = costumer.LastName,
                                                 UserType = UnregisteredUserType.Customer
@@ -106,8 +106,8 @@ namespace ChinookSystem.Security
             //The instance of the required user is based on our ApplicationUser
             var newuseraccount = new ApplicationUser()
             {
-                UserName = userInfo.UserName,
-                Email = userInfo.Email
+                UserName = userInfo.AssignedUserName,
+                Email = userInfo.AssignedEmail
             };
 
             //Set the customerID or EamployeeID
@@ -115,12 +115,12 @@ namespace ChinookSystem.Security
             {
                 case UnregisteredUserType.Customer:
                     {
-                        newuseraccount.Id = userInfo.UserId.ToString();
+                        newuseraccount.Id = userInfo.CustomerEmployeeId.ToString();
                         break;
                     }
                 case UnregisteredUserType.Employee:
                     {
-                        newuseraccount.Id = userInfo.UserId.ToString();
+                        newuseraccount.Id = userInfo.CustomerEmployeeId.ToString();
                         break;
                     }
             }

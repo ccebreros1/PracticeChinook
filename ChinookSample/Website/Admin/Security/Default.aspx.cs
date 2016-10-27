@@ -51,12 +51,12 @@ public partial class Admin_Security_Default : System.Web.UI.Page
             //columns are indexed (starting at 0)
             UnregisteredUserProfile user = new UnregisteredUserProfile()
             {
-                UserId = int.Parse(UnregisteredUsersGridView.SelectedDataKey.Value.ToString()),
+                CustomerEmployeeId = int.Parse(UnregisteredUsersGridView.SelectedDataKey.Value.ToString()),
                 UserType = (UnregisteredUserType)Enum.Parse(typeof(UnregisteredUserType), agvrow.Cells[1].Text),
                 FirstName = agvrow.Cells[2].Text,
                 LastName = agvrow.Cells[3].Text,
-                UserName = assignedUserName,
-                Email = assignedEmail
+                AssignedUserName = assignedUserName,
+                AssignedEmail = assignedEmail
             };
 
             UserManager sysmgr = new UserManager();
