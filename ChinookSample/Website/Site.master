@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -68,19 +68,23 @@
                     <asp:Menu ID="navMenu" runat="server"
                         BackColor="#000000" BorderColor="Red"
                         StaticMenuItemStyle-ForeColor="#999999"
-                         StaticMenuItemStyle-VerticalPadding="10px"
-                         StaticMenuItemStyle-HorizontalPadding="10px"
-                         RenderingMode="List" Orientation="Horizontal"
-                         DynamicMenuItemStyle-ForeColor="#999999"
-                         DynamicMenuStyle-BackColor="Black">
+                        StaticMenuItemStyle-VerticalPadding="10px"
+                        StaticMenuItemStyle-HorizontalPadding="10px"
+                        RenderingMode="List" Orientation="Horizontal"
+                        DynamicMenuItemStyle-ForeColor="#999999"
+                        DynamicMenuStyle-BackColor="Black">
                         <Items>
                             <asp:MenuItem Text="Home" NavigateUrl="~/"></asp:MenuItem>
 
                             <asp:MenuItem Text="DDLPages" Value="Menu">
-                                <asp:MenuItem Text="FirstSample" NavigateUrl="~/Queries/FirstSample.aspx"/>
-                                <asp:MenuItem Text="RepresentativeCustomers" NavigateUrl="~/Queries/RepresentativeCustomers.aspx"/>
+                                <asp:MenuItem Text="FirstSample" NavigateUrl="~/Queries/FirstSample.aspx" />
+                                <asp:MenuItem Text="RepresentativeCustomers" NavigateUrl="~/Queries/RepresentativeCustomers.aspx" />
                             </asp:MenuItem>
                             <asp:MenuItem Text="Users/Roles" NavigateUrl="~/Admin/Security/Default.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Entity Maintenance" Value="Menu">
+                                <asp:MenuItem Text="Track" NavigateUrl="~/Admin/EntityMaintenance/TrackCRUD.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+
                             <asp:MenuItem Text="About" NavigateUrl="~/About"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact"></asp:MenuItem>
                         </Items>
