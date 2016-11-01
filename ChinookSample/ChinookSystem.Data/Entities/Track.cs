@@ -25,15 +25,35 @@ namespace ChinookSystem.Data.Entities
         //property names should use sql attribute name
         //properties should be listed in the same order
         //     as sql table attributes for easy of maintenance
+
+        //Entity validation
+        //This is validation that kicks im when the
+        //.SaveChange() command is executed
+        //[Required(ErrorMessage="Bad error message")]
+        //[StringLength(int maximum[, int minimum], ErrorMessage="BAD GUY")] ([] means optional in [, int minimum])
+        //[Range(double minimum, double maximum, ErrorMessage="Bad one")]
+        //[RegularExplression("expression", ErrorMessage="Hey you!")]
         [Key]
         public int TrackId { get; set; }
+        [Required(ErrorMessage = "Name is required field")]
+        [StringLength(maximumLength:200, ErrorMessage = "Long name man!")]
         public string Name { get; set; }
+        [Range(minimum: 1.0, maximum: double.MaxValue, ErrorMessage = "Invalid Album, try selection again")]
         public int? AlbumId { get; set; }
+        [Required(ErrorMessage = "Media type selection is required field")]
+        [Range(minimum: 1.0, maximum: double.MaxValue, ErrorMessage = "Invalid Album, try selection again")]
         public int MediaTypeId { get; set; }
+        [Range(minimum: 1.0, maximum: double.MaxValue, ErrorMessage = "Invalid Genre, try selection again")]
         public int? GenreId { get; set; }
+        [StringLength(maximumLength: 120, ErrorMessage = "Composer name is too long")]
         public string Composer { get; set; }
+        [Required(ErrorMessage = "Milliseconds is a required field")]
+        [Range(minimum: 1.0, maximum: double.MaxValue, ErrorMessage = "Invalid Msec, greater than 1 is the right value")]
         public int Milliseconds { get; set; }
+        [Range(minimum: 1.0, maximum: double.MaxValue, ErrorMessage = "Invalid Bytes, greater than 1 is the right value")]
         public int? Bytes { get; set; }
+        [Required(ErrorMessage = "Price is a required field")]
+        [Range(minimum: 0.0, maximum: double.MaxValue, ErrorMessage = "Invalid Price, greater than 0 is the right value")]
         public decimal UnitPrice { get; set; }
 
         //navigation properties for use by Linq

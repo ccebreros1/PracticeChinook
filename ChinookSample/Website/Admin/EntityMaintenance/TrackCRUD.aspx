@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="TrackCRUD.aspx.cs" Inherits="Admin_EntityMaintenance_TrackCRUD" %>
 
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="my" TagName="MessageUserControl" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="jumbotron">
         <h1>Wired ListView CRUD</h1>
     </div>
+    <my:MessageUserControl runat="server" ID="MessageUserControl" />
     <asp:ListView ID="TrackList" runat="server" DataSourceID="TrackListODS" InsertItemPosition="LastItem" DataKeyNames="TrackId" >
         <EditItemTemplate>
             <tr style="background-color: #008A8C; color: #000000;">
@@ -163,19 +167,23 @@
         OldValuesParameterFormatString="original_{0}"
         SelectMethod="ListTracks"
         TypeName="ChinookSystem.BLL.TrackController"
-        UpdateMethod="UpdateTrack"></asp:ObjectDataSource>
+        UpdateMethod="UpdateTrack"
+        OnDeleted="CheckForException" OnInserted="CheckForException" OnSelected="CheckForException" OnUpdated="CheckForException"></asp:ObjectDataSource>
 
     <asp:ObjectDataSource ID="AlbumListODS" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="AlbumList"
-        TypeName="ChinookSystem.BLL.AlbumController"></asp:ObjectDataSource>
+        TypeName="ChinookSystem.BLL.AlbumController"
+        OnDeleted="CheckForException" OnInserted="CheckForException" OnSelected="CheckForException" OnUpdated="CheckForException"></asp:ObjectDataSource>
 
     <asp:ObjectDataSource ID="MediaTypeListODS" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="MediaTypeList"
-        TypeName="ChinookSystem.BLL.MediaTypeController"></asp:ObjectDataSource>
+        TypeName="ChinookSystem.BLL.MediaTypeController"
+        OnDeleted="CheckForException" OnInserted="CheckForException" OnSelected="CheckForException" OnUpdated="CheckForException"></asp:ObjectDataSource>
 
     <asp:ObjectDataSource ID="GenreListODS" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GenreList"
-        TypeName="ChinookSystem.BLL.GenreController"></asp:ObjectDataSource>
+        TypeName="ChinookSystem.BLL.GenreController"
+        OnDeleted="CheckForException" OnInserted="CheckForException" OnSelected="CheckForException" OnUpdated="CheckForException"></asp:ObjectDataSource>
 
 </asp:Content>
 
